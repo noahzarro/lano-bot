@@ -22,8 +22,10 @@ def message_handler(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text="Auf den Tisch kommt heut ein Fisch, so saftig süüüüüüüüüüüüss")
     if "calvin" in message:
          bot.send_message(chat_id=update.message.chat_id, text=CalvinQuote[random.randrange(0, len(CalvinQuote), 1)])
+    if "scio" in message:
+        bot.send_sticker(chat_id=update.message.chat_id, sticker=open('photos/scio_scooter.gif', 'rb'))
+        bot.send_message(chat_id=update.message.chat_id, text="Do isch de grüsig cheib")
     print(update.message.text)
-    bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
 
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
