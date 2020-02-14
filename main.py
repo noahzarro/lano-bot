@@ -13,8 +13,10 @@ def message_handler(bot, update):
     message = update.message.text.lower().split()
     if "lano" in message:
         bot.send_message(chat_id=update.message.chat_id, text="Was für ein schöner Name!")
-    print(update.message.text)
-    bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
+
+    if "scio" in message:
+        bot.send_sticker(chat_id=update.message.chat_id, sticker=open('photos/scio_scooter.gif', 'rb'))
+        bot.send_message(chat_id=update.message.chat_id, text="Do isch de grüsig cheib")
 
 
 dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
