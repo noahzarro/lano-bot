@@ -10,6 +10,9 @@ dispatcher = updater.dispatcher
 
 
 def message_handler(bot, update):
+    message = update.message.text.lower().split()
+    if "lano" in message:
+        bot.send_message(chat_id=update.message.chat_id, text="Was für ein schöner Name!")
     print(update.message.text)
     bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
 
