@@ -1,8 +1,18 @@
-import telegram
 import json
+from telegram.ext import Updater, MessageHandler, Filters
 
 with open('token.json', 'r') as token_file:
     token_dict = json.load(token_file)
 
 
-bot = telegram.Bot(token=token_dict["token"])
+updater = Updater(token=token_dict["token"])
+dispatcher = updater.dispatcher
+
+
+def message_handler(bot, update):
+    print(update.message.text)
+    bot.send_message(chat_id=update.message.chat_id, text="Was für ein hässlicher Name!")
+
+
+dispatcher.add_handler(MessageHandler(Filters.text, message_handler))
+updater.start_polling()
