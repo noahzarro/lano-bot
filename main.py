@@ -1,3 +1,8 @@
 import telegram
+import json
 
-bot = telegram.Bot(token='TOKEN')
+with open('token.json', 'r') as token_file:
+    token_dict = json.load(token_file)
+
+
+bot = telegram.Bot(token=token_dict["token"])
