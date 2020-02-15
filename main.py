@@ -25,6 +25,8 @@ def message_handler(bot, update):
     if "scio" in message:
         bot.send_sticker(chat_id=update.message.chat_id, sticker=open('photos/scio_scooter.gif', 'rb'))
         bot.send_message(chat_id=update.message.chat_id, text="Do isch de grüsig cheib")
+    if "nutella" in message:
+        bot.send_poll(chat_id=update.message.chat_id, question="Wird Nutella mit oder ohni Butter gesse?", options=["Wuah, wilsch mi vegifte?", "Sicher mit, ihr Barbare!"])
     print(update.message.text)
 
 
